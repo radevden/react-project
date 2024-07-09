@@ -1,34 +1,18 @@
-import axios from "axios"
 import './App.css';
+import Form from "./Form";
 
-
-axios.post('/user', {
-  firstName: 'Fred',
-  lastName: 'Flintstone'
-})
-.then(function (response) {
-  console.log(response);
-})
-.catch(function (error) {
-  console.log(error);
-});
-
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Weather App</h1>
+      <Form />
+      <Footer/>
     </div>
   );
 }
 
-export default App;
+function Footer(){
+  return (<footer>
+    This project is open sourced on <a href="">Github</a> and created by Denisa Radevová
+  </footer>);
+}
