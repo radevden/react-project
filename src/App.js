@@ -13,6 +13,6 @@ export default function App() {
 
 function Footer(){
   return (<footer>
-    This project is open sourced on <a href="">Github</a> and created by Denisa Radevová
+    This project is coded by Denisa Radevová and is open-sourced on <a href="https://github.com/radevden/react-project.git">Github</a> and hosted on <a href="https://brilliant-salmiakki-9a4626.netlify.app/">Netlify</a>
   </footer>);
 }

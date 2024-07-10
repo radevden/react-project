@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Form() {
   const [city, showCity] = useState("");
@@ -11,8 +12,13 @@ export default function Form() {
   const [loading, setLoading] = useState(false);
   const [icon, setIcon] = useState(null);
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   function setLocation(event) {
-    showCity(event.target.value);
+    const formattedCity = capitalizeFirstLetter(event.target.value);
+    showCity(formattedCity);
   }
 
   function clickSubmit(event) {
@@ -44,20 +50,32 @@ export default function Form() {
     </form>
   );
 
+  function Today() {
+    return (
+      <div className="container-fluid todayData">
+        <div className="row">
+          <div className="col-md-6">
+            <h2 className="city">{city}</h2>
+            <ul>
+              <li>Description: {description}</li>
+              <li>Humidity: {humidity}%</li>
+              <li>Wind: {Math.round(wind)} m/s</li>
+            </ul>
+          </div>
+          <div className="col-md-6">
+            <h1 className="todaystemp">{Math.round(temperature)}°C</h1>
+            <img src={icon} alt="weather icon" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <>
         {form}
-        <h2 className="city">{city}</h2>
-        <h1 className="todaystemp">{Math.round(temperature)}°C</h1>
-        <ul>
-          <li>Description: {description}</li>
-          <li>Humidity: {humidity}%</li>
-          <li>Wind: {Math.round(wind)} m/s</li>
-          <li>
-            <img src={icon} alt="weather icon" />
-          </li>
-        </ul>
+        <Today />
       </>
     );
   } else {
