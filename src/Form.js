@@ -98,7 +98,7 @@ export default function Form() {
       <>
         {form}
         <br/>
-        <p>loading...</p>
+        <p className="loading">loading...</p>
       </>
     );
   }
