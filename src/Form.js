@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
 import axios from "axios";
+import FormattedDate from "./FormattedDate.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Form() {
@@ -11,6 +12,7 @@ export default function Form() {
   const [wind, setWind] = useState(null);
   const [loading, setLoading] = useState(false);
   const [icon, setIcon] = useState(null);
+  const [date, setDate] = useState(null);
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -23,16 +25,17 @@ export default function Form() {
 
   function clickSubmit(event) {
     event.preventDefault();
-    let apiKey = "a3e880fb200b2349fc28b9c2c1cc2f6a";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiKey = "e1c36520c14f56fa74b8fob3tcc313d4";
+    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
     axios.get(url).then((response) => {
-      setTemp(response.data.main.temp);
-      setHumid(response.data.main.humidity);
-      setDesc(response.data.weather[0].description);
+      setTemp(response.data.temperature.current);
+      setHumid(response.data.temperature.humidity);
+      setDesc(response.data.condition.description);
       setWind(response.data.wind.speed);
+      setDate(new Date(response.data.time*1000));
       setIcon(
-        `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+        `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
       );
       setLoading(true);
     });
@@ -40,14 +43,24 @@ export default function Form() {
 
   let form = (
     <form onSubmit={clickSubmit}>
-      <input
-        className="text"
-        type="text"
-        placeholder="search for city..."
-        onChange={setLocation}
-      />
-      <input className="submit" type="submit" value="submit" />
+        <div className="container">
+            <div className="row">
+                <div class="col-md-9">
+                    <input
+                        className="text"
+                        type="text"
+                        placeholder="search for city..."
+                        autoFocus="on"
+                        onChange={setLocation}
+                    />
+                </div>
+                <div className="col-md-3">
+                    <input className="submit" type="submit" value="submit" />
+                </div>
+            </div>
+        </div>
     </form>
+    
   );
 
   function Today() {
@@ -57,7 +70,9 @@ export default function Form() {
           <div className="col-md-6">
             <h2 className="city">{city}</h2>
             <ul>
-              <li>Description: {description}</li>
+              <li>
+                <FormattedDate date={date}/>, {description}
+              </li>
               <li>Humidity: {humidity}%</li>
               <li>Wind: {Math.round(wind)} m/s</li>
             </ul>
@@ -82,6 +97,7 @@ export default function Form() {
     return (
       <>
         {form}
+        <br/>
         <p>loading...</p>
       </>
     );

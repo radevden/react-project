@@ -21,8 +21,13 @@ Form {
   padding: 10px 190px;
   border-radius: 6px;
   border: 1px solid grey;
+  width: 100%;
 }
 
+.text::placeholder {
+padding: 9px 100px;
+text-align: left;
+}
 
 .submit{
   padding: 10px 20px;
@@ -32,6 +37,7 @@ Form {
   background-color: #7dc6d8;
   font-weight: 600;
   transition: #7dc6d8 1s ease-in-out;
+  width: 100%;
 }
 
 .submit:hover{
