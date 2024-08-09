@@ -3,6 +3,7 @@ import './App.css';
 import axios from "axios";
 import FormattedDate from "./FormattedDate.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import WeatherIcon from "./WeatherIcon.js";
 
 export default function Form() {
   const [city, showCity] = useState("");
@@ -34,9 +35,7 @@ export default function Form() {
       setDesc(response.data.condition.description);
       setWind(response.data.wind.speed);
       setDate(new Date(response.data.time*1000));
-      setIcon(
-        `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
-      );
+      setIcon(response.data.condition.icon);
       setLoading(true);
     });
   }
@@ -63,7 +62,7 @@ export default function Form() {
     
   );
 
-  function Today() {
+  function Today(props) {
     return (
       <div className="container-fluid todayData">
         <div className="row">
@@ -77,9 +76,9 @@ export default function Form() {
               <li>Wind: {Math.round(wind)} m/s</li>
             </ul>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 tempIcon">
             <h1 className="todaystemp">{Math.round(temperature)}°C</h1>
-            <img src={icon} alt="weather icon" />
+            <WeatherIcon code={icon} alt={description}/>
           </div>
         </div>
       </div>
