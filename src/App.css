@@ -62,13 +62,13 @@ text-align: left;
   padding: 50px;
 }
 
-.tempIcon {
-  display: inline-block;
-}
 
 h2 {
   font-size: 40px!important;
-  padding-bottom: 10px;;
+  padding-bottom: 10px;
+  margin-left: 0;
+  padding-left: 0;
+  text-align: left;
 }
 
 ol, ul{
@@ -80,6 +80,39 @@ li {
   list-style: none;
   text-align: left;
   line-height: 1.5;
+}
+
+.tempConvert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todaystemp {
+  font-size: 45px;
+  margin: 0; 
+}
+
+.unit {
+  font-size: 15px;  
+  margin-top: -19.5px;
+  margin-left: 2px;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none!important;
+  color: rgb(0, 0, 0, 0.5)!important;
+  font-weight: 500;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+canvas{
+  margin-top: 20px;
 }
 
 footer{

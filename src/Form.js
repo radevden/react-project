@@ -4,6 +4,7 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherIcon from "./WeatherIcon.js";
+import WeatherTemperature from "./WeatherTemperature.js";
 
 export default function Form() {
   const [city, showCity] = useState("");
@@ -66,7 +67,7 @@ export default function Form() {
     return (
       <div className="container-fluid todayData">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-sm-6">
             <h2 className="city">{city}</h2>
             <ul>
               <li>
@@ -76,8 +77,8 @@ export default function Form() {
               <li>Wind: {Math.round(wind)} m/s</li>
             </ul>
           </div>
-          <div className="col-md-6 tempIcon">
-            <h1 className="todaystemp">{Math.round(temperature)}°C</h1>
+          <div className="col-sm-6 tempIcon">
+            <WeatherTemperature celsius={temperature} />
             <WeatherIcon code={icon} alt={description}/>
           </div>
         </div>
