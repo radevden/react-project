@@ -5,6 +5,7 @@ import FormattedDate from "./FormattedDate.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherIcon from "./WeatherIcon.js";
 import WeatherTemperature from "./WeatherTemperature.js";
+import WeatherForecast from "./WeatherForecast.js";
 
 export default function Form() {
   const [city, showCity] = useState("");
@@ -70,7 +71,7 @@ export default function Form() {
           </div>
           <div className="col-sm-6 tempIcon">
             <WeatherTemperature celsius={temperature} />
-            <WeatherIcon code={icon} alt={description}/>
+            <WeatherIcon size={60} code={icon} alt={description}/>
           </div>
         </div>
       </div>
@@ -82,6 +83,7 @@ export default function Form() {
       <>
         {form}
         <Today />
+        <WeatherForecast />
       </>
     );
   } else {
