@@ -16,6 +16,7 @@ export default function Form() {
   const [loading, setLoading] = useState(false);
   const [icon, setIcon] = useState(null);
   const [date, setDate] = useState(null);
+  const [coordinates, setCoords] = useState(null);
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -39,6 +40,7 @@ export default function Form() {
       setDate(new Date(response.data.time*1000));
       setIcon(response.data.condition.icon);
       setLoading(true);
+      setCoords(response.data.coordinates);
     });
   }
 
@@ -83,7 +85,7 @@ export default function Form() {
       <>
         {form}
         <Today />
-        <WeatherForecast />
+        <WeatherForecast coordinates={coordinates}/>
       </>
     );
   } else {
