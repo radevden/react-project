@@ -42,10 +42,7 @@ export default function Form() {
   }
 
   let form = (
-    <form onSubmit={clickSubmit}>
-        <div className="container">
-            <div className="row">
-                <div class="col-md-9">
+    <form onSubmit={clickSubmit} className="form-inline">
                     <input
                         className="text"
                         type="text"
@@ -53,14 +50,8 @@ export default function Form() {
                         autoFocus="on"
                         onChange={setLocation}
                     />
-                </div>
-                <div className="col-md-3">
                     <input className="submit" type="submit" value="submit" />
-                </div>
-            </div>
-        </div>
-    </form>
-    
+    </form> 
   );
 
   function Today(props) {
