@@ -31,7 +31,7 @@ if (loaded) {
         );    
 
 } else {
-    const apiKey = "8161b4309ee03faae957729ba7104797";
+    const apiKey = "d1a86552de255334f6117b348c4519bd";
     const longitude = props.coordinates.longitude;
     const latitude= props.coordinates.latitude;
     const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
