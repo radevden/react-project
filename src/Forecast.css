@@ -1,9 +1,26 @@
 .forecast-day, .forecast-tempmin {
-    opacity: 80%;
+    opacity: 70%;
+    margin: 0 2px;
+  }
+
+  .forecast-day {
+    font-size: 21px;
   }
 
   .forecast {
-    margin-bottom: 20px;
+    margin-bottom: 45px;
   }
+
+  .forecast-tempmax, .forecast-tempmin {
+    font-size: 20px;
+  }
+
+  @media (max-width: 800px){
+    .forecast-day, .forecast-tempmax, .forecast-tempmin {
+      font-size: 15px;
+    }
+
+  }
+  
 
   

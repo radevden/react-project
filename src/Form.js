@@ -73,7 +73,7 @@ export default function Form() {
           </div>
           <div className="col-sm-6 tempIcon">
             <WeatherTemperature celsius={temperature} />
-            <WeatherIcon size={60} code={icon} alt={description}/>
+            <WeatherIcon size={72} code={icon} alt={description}/>
           </div>
         </div>
       </div>

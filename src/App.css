@@ -53,7 +53,7 @@ text-align: left;
 }
 
 .todaystemp{
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .tempcol{
@@ -117,7 +117,7 @@ a:hover {
 }
 
 canvas{
-  margin-top: 0;
+  margin-top: 2px;
 }
 
 footer{
@@ -146,12 +146,12 @@ footer{
   }
 
   .unit {
-    font-size: 12px;
-    margin-top: -32.5px;
+    font-size: 14px;
+    margin-top: -32px;
   }
 
   canvas {
-    margin-top: 0;
+    margin-top: 7px;
   }
 
 }

@@ -13,8 +13,9 @@ export default function WeatherForecast (props){
         setLoaded(true);
     }
     
-if (loaded) {
-        return (
+if (loaded) {   
+    console.log(forecast) 
+    return (
             <div className="forecast">
                 <div className="row">
                     {forecast.map(function (dailyForecast, index){
