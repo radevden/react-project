@@ -1,5 +1,5 @@
 import PropagateLoader from "react-spinners/PropagateLoader";
-import { useState} from "react";
+import React from "react";
 
 
 export default function Loader(props) {
