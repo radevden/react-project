@@ -94,7 +94,7 @@ export default function Form() {
       <>
         {form}
         <div className="loading">
-        <Loader />
+        <Loader color={"#7dc6d8"} loading={true}/>
         </div>
       </>
     );
