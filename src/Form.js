@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherIcon from "./WeatherIcon.js";
 import WeatherTemperature from "./WeatherTemperature.js";
 import WeatherForecast from "./WeatherForecast.js";
+import Loader from "./Loader.js";
 
 export default function Form() {
   const [city, showCity] = useState("");
@@ -92,8 +93,9 @@ export default function Form() {
     return (
       <>
         {form}
-        <br/>
-        <p className="loading">loading...</p>
+        <div className="loading">
+        <Loader />
+        </div>
       </>
     );
   }

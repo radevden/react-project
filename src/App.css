@@ -120,6 +120,11 @@ canvas{
   margin-top: 2px;
 }
 
+.loading {
+  padding: 70px 100px;
+  margin-bottom: 20px;
+}
+
 footer{
   font-size: 14px;
   margin-bottom: -10px;
